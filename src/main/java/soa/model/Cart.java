@@ -1,0 +1,36 @@
+package soa.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "cart")
+public class Cart {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long cart_id;
+    private Long user_id;
+    private Long product_id;
+    private int quantity;
+
+    public Cart() {}
+
+    public Cart(Long user_id, Long product_id, int quantity) {
+        this.user_id = user_id;
+        this.product_id = product_id;
+        this.quantity = quantity;
+    }
+
+    public Long getCart_id() { return cart_id; }
+    public void setCart_id(Long cart_id) { this.cart_id = cart_id; }
+    public Long getUser_id() { return user_id; }
+    public void setUser_id(Long user_id) { this.user_id = user_id; }
+    public Long getProduct_id() { return product_id; }
+    public void setProduct_id(Long product_id) { this.product_id = product_id; }
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+}
+
